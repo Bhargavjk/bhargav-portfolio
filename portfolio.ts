@@ -118,6 +118,7 @@ export const projects: ProjectType[] = [
   },
 ];
 
+export const feedbacks: FeedbackType[] = [];
 
 export const seoData: SEODataType = {
   title: "Bhargav JK",
