@@ -3,6 +3,7 @@ import { greetings } from "../portfolio";
 import { Button, Container, Row, Col } from "reactstrap";
 import GreetingLottie from "../components/DisplayLottie";
 import SocialLinks from "../components/SocialLinks";
+import codingAnimation from "../public/lottie/coding.json";
 
 const Greetings = () => {
   useEffect(() => {
@@ -25,19 +26,23 @@ const Greetings = () => {
             <span />
             <span />
           </div>
+
           <Container className="py-lg-md d-flex">
             <div className="col px-0">
               <Row>
                 <Col lg="6">
-                  <h1 className="display-3 text-white">{greetings.title + " "}</h1>
+                  <h1 className="display-3 text-white">{greetings.title}</h1>
                   <p className="lead text-white">{greetings.description}</p>
+
                   <SocialLinks />
+
                   {greetings.resumeLink && (
                     <div className="btn-wrapper my-4">
                       <Button
                         className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
                         color="default"
                         href={greetings.resumeLink}
+                        target="_blank"
                       >
                         <span className="btn-inner--icon mr-1">
                           <i className="fa fa-file" />
@@ -47,13 +52,14 @@ const Greetings = () => {
                     </div>
                   )}
                 </Col>
+
                 <Col lg="6">
-                  <GreetingLottie animationPath="/lottie/coding.json" />
+                  <GreetingLottie animationData={codingAnimation} />
                 </Col>
               </Row>
             </div>
           </Container>
-          {/* SVG separator */}
+
           <div className="separator separator-bottom separator-skew">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,11 +69,13 @@ const Greetings = () => {
               x="0"
               y="0"
             >
-              <polygon className="fill-white" points="2560 0 2560 100 0 100" />
+              <polygon
+                className="fill-white"
+                points="2560 0 2560 100 0 100"
+              />
             </svg>
           </div>
         </section>
-        {/* 1st Hero Variation */}
       </div>
     </main>
   );

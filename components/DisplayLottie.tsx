@@ -1,23 +1,16 @@
 import React from "react";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
 
-type Props = {
-  animationPath: string;
+const Lottie = dynamic(() => import("lottie-react"), {
+  ssr: false,
+});
+
+interface DisplayLottieProps {
+  animationData: any;
+}
+
+const DisplayLottie = ({ animationData }: DisplayLottieProps) => {
+  return <Lottie animationData={animationData} loop={true} />;
 };
 
-const GreetingLottie = ({ animationPath }: Props) => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    path: animationPath,
-  };
-
-  return (
-    <div onClick={() => null}>
-      {/* @ts-ignore */}
-      <Lottie options={defaultOptions} />
-    </div>
-  );
-};
-
-export default GreetingLottie;
+export default DisplayLottie;
